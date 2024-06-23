@@ -1,0 +1,176 @@
+{
+  "_version": "1.42.0",
+  "sap.app": {
+    "id": "reservation030",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.13.2",
+      "toolsId": "54420934-0c29-4025-9b97-2f9417cb8f7c"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/Z_00_030_SS24_RESERVATION_SRV/?sap-client=300",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": false,
+    "dependencies": {
+      "minUI5Version": "1.102.2",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.suite.ui.generic.template": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.ui.table": {},
+        "sap.ushell": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "reservation030.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {}
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "reservation030.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
+      "routes": [
+        {
+          "name": "RouteMain",
+          "pattern": ":?query:",
+          "target": [
+            "TargetMain"
+          ]
+        },
+        {
+          "name":"home",
+          "pattern": "",
+          "target":"home"
+        },
+        {
+          "name":"tableList",
+          "pattern":"tableList",
+          "target":"tableList"
+        },
+        {
+          "name":"tables",
+          "pattern": "tables/{tableId}",
+          "target":"tables"
+        },
+        {
+          "name":"reservationList",
+          "pattern": "reservationList",
+          "target":"reservationList"
+        },
+        {
+          "name":"reservations",
+          "pattern": "reservations/{reservationId}",
+          "target":"reservations"
+        }
+      ],
+      "targets": {
+        "TargetMain": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Main",
+          "viewName": "Main"
+        },
+        "tables": {
+          "viewId": "tables",
+          "viewName": "TableDetails",
+          "controlId": "app",
+          "viewLevel":2
+        },
+        "home": {
+          "viewId": "home",
+          "viewName": "Main",
+          "controlId": "app",
+          "viewLevel":1
+        },
+        "tableList":{
+          "viewId":"tableList",
+          "viewName":"TableList",
+          "controlId":"app",
+          "viewLevel":2
+        },
+        "reservations": {
+          "viewId": "reservations",
+          "viewName": "ReservationDetails",
+          "controlId": "app",
+          "viewLevel":2
+        },
+        "reservationList":{
+          "viewId":"reservationList",
+          "viewName":"ReservationList",
+          "controlId":"app",
+          "viewLevel":2
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "reservation030.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    }
+  }
+}

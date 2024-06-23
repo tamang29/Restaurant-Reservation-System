@@ -1,0 +1,77 @@
+<mvc:View controllerName="reservation030.controller.ReservationList"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Toolbar>
+            <Button text="Home" press="onNavigateHome" />
+            <Button text="Table" press="onNavigateTable" />
+            <Button text="Reservation" press="onNavigateReservation" />
+        </Toolbar>
+    <Page id="page" title="{i18n>reserveData}">
+            <Bar>
+                <contentRight>
+                    <Button
+                    text="{i18n>createNewReservation}"
+                    type="Accept"
+                    press="onCreateNewReservationPress"
+                     />
+                </contentRight>
+            </Bar>
+        <content>
+        <ScrollContainer horizontal="true" vertical="false">
+        <Table
+            id="idReservationSet"
+            items="{/ReservationSet}"
+            growing="true"
+            growingScrollToLoad="true"
+            fixedLayout="false"
+        >
+            <columns>
+                <Column><Text text="{i18n>reservationId}"/></Column>
+                <Column><Text text="{i18n>noOfGuest}"/></Column>
+                <Column><Text text="{i18n>reservationName}"/></Column>
+                <Column><Text text="{i18n>email}"/></Column>
+                <Column><Text text="{i18n>phone}"/></Column>
+                <Column><Text text="{i18n>freetext}"/></Column>
+                <Column><Text text="{i18n>reserveDate}"/></Column>
+                <Column><Text text="{i18n>startTime}"/></Column>
+                <Column><Text text="{i18n>tableId}"/></Column>
+                <Column><Text text="Actions"/></Column>
+            </columns>
+            <items>
+            <ColumnListItem
+                type="Navigation"
+                press="handleLineItemPress"
+            >
+                <cells>
+                    <Text text="{ReservationId}"/>
+                    <Text text="{NoOfGuest}"/>
+                    <Text text="{ReservationName}"/>
+                    <Text text="{Email}"/>
+                    <Text text="{Phone}"/>
+                    <Text text="{Freetext}"/>
+                    <DatePicker editable="false" value="{ path: 'ReserveDate', type: 'sap.ui.model.odata.type.Date'}"/>
+                    <TimePicker  editable="false"
+            value="{ path: 'StartTime', type: 'sap.ui.model.odata.type.Time'}"/>
+                    <Text text="{TableId}"/>
+                <HBox class="customHBox">
+                    <Button
+                    text="{i18n>updateTable}"
+                    type="Default"
+                    press="onEditReservationPress"
+                     />
+                      <Button
+                    text="{i18n>deleteTable}"
+                    type="Negative"
+                    press="onDeleteReservationPress"
+
+                     />
+                     </HBox>
+                </cells>
+            </ColumnListItem>
+            </items>
+        </Table>
+        </ScrollContainer>
+        </content>
+
+    </Page>
+</mvc:View>

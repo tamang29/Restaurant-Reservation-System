@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "3.1"
+metadata:
+  name: reservation030
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          url: https://s40lp1.ucc.cit.tum.de:8100/
+          client: "300"
+          auth: basic
+        credentials:
+          username: env:S40_USER
+          password: env:S40_PASSWORD
+        app:
+          name: Z_00_030_SS24_R
+          description: ""
+          package: Z_00_030_SS24
+          transport: S40K900573
+        exclude:
+          - /test/

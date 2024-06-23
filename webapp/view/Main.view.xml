@@ -1,0 +1,60 @@
+<mvc:View controllerName="reservation030.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:unified="sap.ui.unified">
+     <Toolbar>
+            <Button text="Home" press="onNavigateHome" />
+            <Button text="Table" press="onNavigateTable" />
+            <Button text="Reservation" press="onNavigateReservation" />
+        </Toolbar>
+    <Page title="Make a reservation" >
+        <content>
+            <!-- Welcome Message -->
+            <VBox justifyContent="Center" alignItems="Center">
+            <Text text="People, Date and Area" class="sapUiSmallMargin" textAlign="Center"/>
+            <Text text="Tables are reserved for a period of 60 minutes. A longer stay is possible depending on the reservation situation and with prior arrangement" class="sapUiSmallMargin" textAlign="Center"/>
+            </VBox>
+        </content>
+        <l:BlockLayout>
+        <l:content>
+          <l:BlockLayoutRow>
+            <l:BlockLayoutCell title="No of People" titleAlignment="Center">
+                <Label  text="No of People*" />
+                <Input
+                    id="NoOfGuests"
+                    placeholder="Enter number of People.(min:1/max:8)"
+                    type="Number"
+                    width="100%" />
+                    <VBox justifyContent="Center" alignItems="Center" class="dateAndTimeTitle">
+                    <Text text="Date and Time*" />
+                    </VBox>
+                <HBox justifyContent="Center" class="calendarContainer">
+                    <unified:Calendar id="calendar"/>
+                    <TimePicker
+                        id="StartTime"
+                        displayFormat="HH:mm"
+                        valueFormat="PTHH'H'mm'M'"
+                        minutesStep="15"
+                        secondsStep="60"
+                        change="onTimeChange"
+
+                    />
+                    <Button id="SelectTime" text="Select Time" press="onSelectTimePress" enabled="false"/>
+
+                </HBox>
+
+
+            </l:BlockLayoutCell>
+            <l:BlockLayoutCell id="tableSelectCell" title="Select Table" titleAlignment="Center">
+              
+              <!-- Add more controls here -->
+            </l:BlockLayoutCell>
+          </l:BlockLayoutRow>
+          <!-- Add more BlockLayoutRow elements for additional rows -->
+        </l:content>
+      </l:BlockLayout>
+    </Page>
+
+
+</mvc:View>

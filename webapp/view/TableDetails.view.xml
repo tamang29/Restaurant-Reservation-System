@@ -1,0 +1,44 @@
+<mvc:View
+    controllerName="reservation030.controller.TableDetails"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    height="100%"
+    busyIndicatorDelay="0"
+    xmlns:f="sap.ui.layout.form"
+>
+    <Page id="page">
+            <Bar>
+                <contentRight>
+                      <Button
+                    text="{i18n>deleteTable}"
+                    type="Negative"
+                    press="onDeleteTablePress"
+                     />
+                </contentRight>
+            </Bar>
+        <content>
+            <VBox class="sapUiSmallMargin">
+            <f:SimpleForm
+                id="tableDetails"
+                title="TableDetails"
+            >
+                <f:content>
+                    <Label text="{i18n>tableId}"/>
+                    <Text text="{TableId}"/>
+                    <Label text="{i18n>assignedNo}"/>
+                    <Text text="{AssignedNo}"/>
+                     <Label text="{i18n>noOfSeats}"/>
+                    <Text text="{NoOfSeats}"/>
+                     <Label text="{i18n>location}"/>
+                    <Text text="{Location}"/>
+                     <Label text="{i18n>decoration}"/>
+                    <Text text="{Decoration}"/>
+                     <Label text="{i18n>reservationNo}"/>
+                </f:content>
+            </f:SimpleForm>
+            </VBox>
+        </content>
+    </Page>
+
+</mvc:View>

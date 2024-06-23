@@ -1,0 +1,36 @@
+/* Enter your custom styles here */
+.customHBox button{
+    margin-right: 5px;
+}
+#Popup-scrollCont{
+    padding: .25rem .25rem;
+    margin-top: 1rem;
+}
+.calendarContainer {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.dateAndTimeTitle{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.sapMCb.sapMCbStd {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff; /* Default button color */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Style the checkbox label text */
+.sapMCbText {
+    white-space: pre-line; /* Allow line breaks */
+}
+
+/* Style the checkbox container when selected */
+.selected-button {
+    background-color: #28a745 !important; /* Change button color when selected */
+}
+

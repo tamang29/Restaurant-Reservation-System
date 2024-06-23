@@ -1,0 +1,65 @@
+<mvc:View controllerName="reservation030.controller.TableList"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Toolbar>
+            <Button text="Home" press="onNavigateHome" />
+            <Button text="Table" press="onNavigateTable" />
+            <Button text="Reservation" press="onNavigateReservation" />
+        </Toolbar>
+    <Page id="page" title="{i18n>tableData}">
+            <Bar>
+                <contentRight>
+                    <Button
+                    text="{i18n>createNewTable}"
+                    type="Accept"
+                    press="onCreateNewTablePress"
+                     />
+                </contentRight>
+            </Bar>
+        <content>
+        <Table
+            id="idTableSet"
+            items="{/TableSet}"
+            growing="true"
+            growingScrollToLoad="true"
+        >
+            <columns>
+                <Column><Text text="{i18n>tableId}"/></Column>
+                <Column><Text text="{i18n>assignedNo}"/></Column>
+                <Column><Text text="{i18n>noOfSeats}"/></Column>
+                <Column><Text text="{i18n>location}"/></Column>
+                <Column><Text text="{i18n>decoration}"/></Column>
+                <Column><Text text="Actions"/></Column>
+            </columns>
+            <items>
+            <ColumnListItem
+                type="Navigation"
+                press="handleLineItemPress"
+            >
+                <cells>
+                    <Text text="{TableId}"/>
+                    <Text text="{AssignedNo}"/>
+                    <Text text="{NoOfSeats}"/>
+                    <Text text="{Location}"/>
+                    <Text text="{Decoration}"/>
+                <HBox class="customHBox">
+                    <Button
+                    text="{i18n>updateTable}"
+                    type="Default"
+                    press="onEditTablePress"
+                     />
+                      <Button
+                    text="{i18n>deleteTable}"
+                    type="Negative"
+                    press="onDeleteTablePress"
+
+                     />
+                     </HBox>
+                </cells>
+            </ColumnListItem>
+            </items>
+        </Table>
+        </content>
+
+    </Page>
+</mvc:View>

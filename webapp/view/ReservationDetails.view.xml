@@ -1,0 +1,52 @@
+<mvc:View
+    controllerName="reservation030.controller.ReservationDetails"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    height="100%"
+    busyIndicatorDelay="0"
+    xmlns:f="sap.ui.layout.form"
+>
+    <Page id="page">
+            <Bar>
+                <contentRight>
+                      <Button
+                    text="{i18n>deleteTable}"
+                    type="Negative"
+                    press="onDeleteReservationPress"
+                     />
+                </contentRight>
+            </Bar>
+        <content>
+            <VBox class="sapUiSmallMargin">
+            <f:SimpleForm
+                id="reservationDetails"
+                title="ReservationDetails"
+            >
+                <f:content>
+                    <Label text="{i18n>reservationId}"/>
+                    <Text text="{ReservationId}"/>
+                    <Label text="{i18n>noOfGuest}"/>
+                    <Text text="{NoOfGuest}"/>
+                     <Label text="{i18n>reservationName}"/>
+                    <Text text="{ReservationName}"/>
+                     <Label text="{i18n>email}"/>
+                    <Text text="{Email}"/>
+                     <Label text="{i18n>phone}"/>
+                    <Text text="{Phone}"/>
+                     <Label text="{i18n>freetext}"/>
+                    <Text text="{Freetext}"/>
+                     <Label text="{i18n>reserveDate}"/>
+                    <DatePicker editable="false" value="{ path: 'ReserveDate', type: 'sap.ui.model.odata.type.Date'}"/>
+                     <Label text="{i18n>startTime}"/>
+                    <TimePicker displayFormat="short" editable="false"
+            value="{ path: 'StartTime', type: 'sap.ui.model.odata.type.Time'}"/>
+                     <Label text="{i18n>tableId}"/>
+                    <Text text="{TableId}"/>
+                </f:content>
+            </f:SimpleForm>
+            </VBox>
+        </content>
+    </Page>
+
+</mvc:View>
